@@ -10,7 +10,7 @@ def static(request, **kwargs):
 
 
 def js(request, **kwargs):
-    body = open('transport-web/dist/app.3224fe33.js').read()
+    body = open('transport-web/dist/js/app.3224fe33.js').read()
     print(body, '\n\n\n\n')
     return HttpResponse(body)
 
