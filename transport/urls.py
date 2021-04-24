@@ -10,6 +10,6 @@ urlpatterns = [
     path('main/',
          views.MainView.as_view(),
          name='main-page-template', ),
-    path('js/app.3224fe33.js/', views.js, name='js'),
+    path('<str:file_name>/', views.file, name='file'),
     path('<str:something>/', views.static, name='all'),
 ]

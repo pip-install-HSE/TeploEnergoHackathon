@@ -9,9 +9,10 @@ def static(request, **kwargs):
     return HttpResponse(html)
 
 
-def js(request, **kwargs):
-    body = open('transport-web/dist/js/app.3224fe33.js').read()
+def file(request, **kwargs):
+    body = open('transport-web/dist/' + kwargs['file_name']).read()
     print(body, '\n\n\n\n')
+    print(kwargs)
     return HttpResponse(body)
 
 
