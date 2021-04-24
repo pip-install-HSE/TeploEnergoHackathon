@@ -9,5 +9,11 @@ def static(request, **kwargs):
     return HttpResponse(html)
 
 
+def js(request, **kwargs):
+    body = open('transport-web/dist/app.3224fe33.js').read()
+    print(body, '\n\n\n\n')
+    return HttpResponse(body)
+
+
 class MainView(TemplateView):
     template_name = 'transport-web/dist/index.html'
