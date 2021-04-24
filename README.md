@@ -69,3 +69,6 @@ DB_PASSWORD = "qwerty123"
 DB_PORT = "5432"
 DB_NAME = "main_db"
 ```
+
+
+CREATE DATABASE main WITH owner=postgres ENCODING = 'UTF-8' lc_collate = 'en_US.utf8' lc_ctype = 'en_US.utf8' template template0;
