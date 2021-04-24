@@ -50,8 +50,11 @@ $python -m venv venv
 source venv/bin/activate
 ```
 
-Install requirements:
+Download Project and install requirements:
 ```
+sudo apt update
+apt install git
+git clone https://github.com/pip-install-HSE/TeploEnergoHackathon
 pip install -r requirements.txt
 ```
 
