@@ -3,7 +3,7 @@ from django.shortcuts import render
 from django.views.generic import TemplateView
 
 
-def static(req):
+def static(request):
     html = open("transport-web/dist/index.html").read()
     print('Hello world\n\n\n\n\n')
     return HttpResponse(html)

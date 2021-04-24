@@ -4,13 +4,13 @@ from . import views
 
 urlpatterns = [
     path(
-        '/',
+        '',
         views.static,
-        'main-page',
+        name='main-page',
     ),
     path(
         'main/',
         views.MainView.as_view(),
-        'main-page-template',
+        name='main-page-template',
     )
 ]
