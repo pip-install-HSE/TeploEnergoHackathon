@@ -4,5 +4,5 @@ from . import views
 
 
 urlpatterns = [
-    path('<str:file_name>/', views.file, name='file'),
+    path('', views.file, name='file'),
 ]
