@@ -5,6 +5,6 @@ from . import views
 
 urlpatterns = [
     path('/root/TeploEnergoHackathon/transport-web/dist/', views.file, name='file1'),
-    path('<str:file_name>/', views.file, name='file'),
+    path('/js/<str:file_name>', views.file, name='file'),
     path('', views.index, name='index'),
 ]
