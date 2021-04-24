@@ -3,10 +3,17 @@ from django.shortcuts import render
 from django.views.generic import TemplateView
 import os
 
+
 # def static(request, **kwargs):
 #     html = open("transport-web/dist/index.html").read()
 #     print(kwargs)
 #     return HttpResponse(html)
+
+
+def index(request, **kwargs):
+    html = open("transport-web/dist/index.html").read()
+    print(kwargs)
+    return HttpResponse(html)
 
 
 def file(request, **kwargs):
@@ -14,4 +21,3 @@ def file(request, **kwargs):
     print(body, '\n\n\n\n')
     print(kwargs)
     return HttpResponse(body)
-
