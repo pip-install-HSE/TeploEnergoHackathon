@@ -18,6 +18,5 @@ def index(request, **kwargs):
 
 def file(request, **kwargs):
     body = open(os.path.join('transport-web/dist/', kwargs['file_name'])).read()
-    print(body, '\n\n\n\n')
-    print(kwargs)
+    print(f'\n\n{request}\n{kwargs}\n\n')
     return HttpResponse(body)
