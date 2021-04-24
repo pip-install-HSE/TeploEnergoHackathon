@@ -15,6 +15,3 @@ def file(request, **kwargs):
     print(kwargs)
     return HttpResponse(body)
 
-
-class MainView(TemplateView):
-    template_name = 'transport-web/dist/index.html'
