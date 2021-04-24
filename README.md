@@ -42,12 +42,6 @@ Download and install pip (package manager):
 wget https://bootstrap.pypa.io/get-pip.py
 $python get-pip.py
 rm get-pip.py
-``` 
-
-Create and activate python environment:
-```
-$python -m venv venv
-source venv/bin/activate
 ```
 
 Download Project and install requirements:
@@ -57,6 +51,12 @@ apt install -y git
 git clone https://github.com/pip-install-HSE/TeploEnergoHackathon
 cd TeploEnergoHackathon
 pip install -r requirements.txt
+``` 
+
+Create and activate python environment:
+```
+$python -m venv venv
+source venv/bin/activate
 ```
 
 ## Set up .env variables
