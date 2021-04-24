@@ -2,3 +2,7 @@ Django==3.2
 pandas==1.2.4
 peewee
 python-dotenv==0.17.0
+psycopg2-binary
+xlrd
+xlwt
+openpyxl
