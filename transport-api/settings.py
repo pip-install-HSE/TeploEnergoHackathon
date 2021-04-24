@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'django.contrib.staticfiles',
+    # 'django.contrib.staticfiles',
     'transport.apps.TransportConfig',
 ]
 
@@ -126,6 +126,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 MEDIA_ROOT = 'transport-web/dist/'
+STATIC_ROOT = 'transport-web/dist/'
 MEDIA_URL = 'file/'
 
 # Default primary key field type
