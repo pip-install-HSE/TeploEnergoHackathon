@@ -53,7 +53,7 @@ source venv/bin/activate
 Download Project and install requirements:
 ```
 sudo apt update
-apt install git
+apt install -y git
 git clone https://github.com/pip-install-HSE/TeploEnergoHackathon
 pip install -r requirements.txt
 ```
