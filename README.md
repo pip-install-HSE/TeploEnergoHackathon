@@ -55,6 +55,7 @@ Download Project and install requirements:
 sudo apt update
 apt install -y git
 git clone https://github.com/pip-install-HSE/TeploEnergoHackathon
+cd TeploEnergoHackathon
 pip install -r requirements.txt
 ```
 
