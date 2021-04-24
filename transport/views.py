@@ -3,8 +3,9 @@ from django.shortcuts import render
 from django.views.generic import TemplateView
 
 
-def static(request):
+def static(request, **kwargs):
     html = open("transport-web/dist/index.html").read()
+    print(kwargs)
     return HttpResponse(html)
 
 
