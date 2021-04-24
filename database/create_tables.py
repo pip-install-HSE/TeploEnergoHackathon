@@ -21,8 +21,11 @@ class BaseModel(Model):
 class Customer(BaseModel):
     name = CharField(unique=True)
 
-class Service(BaseModel):
-    name = CharField(unique=True)
+# class Service(BaseModel):
+#     name = CharField(unique=True)
+
+# class Order(BaseModel):
+
 # class Order(BaseModel):
 #     numb
 
@@ -31,14 +34,20 @@ class Service(BaseModel):
 #     message = TextField()
 #     created_date = DateTimeField(default=datetime.datetime.now)
 #     is_published = BooleanField(default=True)
-db.drop_tables([Customer, Service])
+try:
+    db.drop_tables([Customer])
+except:
+    print('Nothing to delete')
 db.connect(reuse_if_open=True)
-db.create_tables([Customer, Service])
+db.create_tables([Customer])
 
 data_frame = pd.read_excel(io='./orders.xlsx', sheet_name='Документы')
-for el in data_frame['Заказчик']:
 
-    if el not in Customer.select(Customer.name):
+for el in data_frame['Заказчик']:
+    if not Customer.select().where(Customer.name == el):
         Customer.insert(name=el).execute()
 
+# for el in data_frame['ВидОперации']:
+#     if not Service.select().where(Service.name == el):
+#         Service.insert(name=el).execute()
 
