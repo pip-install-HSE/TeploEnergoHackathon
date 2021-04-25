@@ -6,7 +6,7 @@
 
 {% block content %}
     <div>
-        <form action="{% url 'transport_form_handle' %}">
+        <form action="{% url 'transport_form_handle' %}" method="post">
             {% csrf_token %}
             {{ form.as_p }}
             <input type="submit" value="Подтвердить">

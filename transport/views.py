@@ -27,16 +27,14 @@ def file(request, **kwargs):
 #######################
 
 
-class TransportForm(TemplateView):
+class TransportForm(TemplateView, FormView):
     template_name = 'transport_form.html'
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['form'] = TransportCustomerForm
-        return context
+    form_class = TransportCustomerForm
 
 
 class TransportFormHandle(FormView):
+    success_url = '/'
+    form_class = TransportCustomerForm
 
     def form_valid(self, form):
         print(form.cleaned_data)
