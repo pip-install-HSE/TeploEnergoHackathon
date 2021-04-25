@@ -38,13 +38,14 @@ class MainPageView(TemplateView):
     template_name = 'main_page.html'
 
 
-class ViewAnalytics(DetailView):
+class ViewAnalytics(TemplateView):
     model = StaticAnalytics
     template_name = 'static_analytics.html'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['object'] = get_object_or_404(StaticAnalytics, pk=1)
+        obj = StaticAnalytics.objects.create(image_1='')
+        context['object'] = get_object_or_404(StaticAnalytics, pk=)
         return context
 
 
