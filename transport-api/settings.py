@@ -85,9 +85,21 @@ WSGI_APPLICATION = 'transport-api.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+
+        'NAME': 'main',
+
+        'USER': 'postgres',
+
+        'PASSWORD': 'fnvjYUbf63nv',
+
+        'HOST': '193.162.143.45',
+
+        'PORT': '5432',
+
     }
+
 }
 
 
