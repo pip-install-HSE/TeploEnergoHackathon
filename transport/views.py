@@ -44,8 +44,7 @@ class ViewAnalytics(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        obj = StaticAnalytics.objects.create(image_1='')
-        context['object'] = get_object_or_404(StaticAnalytics, pk=)
+        context['object'] = get_object_or_404(StaticAnalytics, pk=1)
         return context
 
 
