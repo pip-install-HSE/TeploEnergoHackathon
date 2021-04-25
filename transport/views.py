@@ -63,16 +63,22 @@ class TransportFormHandle(FormView):
     def form_valid(self, form):
         # print(form.cleaned_data)
 
+        customer = form.cleaned_data['customer']
+        vehicle = form.cleaned_data['vehicle']
+
         conn = psycopg2.connect(dbname='main', user='postgres',
                                 password='fnvjYUbf63nv', host='193.162.143.45')
         cursor = conn.cursor()
-
-        cursor.execute('''select l.name, o.date, "order".predict_time, o.real_time, c.name, v.name from "order"
+        r = '''select l.name, o.date, "order".predict_time, o.real_time, c.name, v.name from "order"
 inner join customer c on c.id = "order".customer_id
 inner join vehicle v on v.id = "order".vehicle_id
 inner join license l on l.id = "order".license_id
-inner join "ride" o on l.id = o.license_id and "order".date = o.date;''')
+inner join "ride" o on l.id = o.license_id and "order".date = o.date'''
+        print(r)
+        cursor.execute(r)
         records = cursor.fetchall()
+
+
         print(records)
 
         m = AnalyticsResult.objects.create()
