@@ -7,6 +7,7 @@ import os
 from .forms import TransportCustomerForm
 from .models import StaticAnalytics, AnalyticsResult
 
+from django.core.files.images import ImageFile
 
 # def static(request, **kwargs):
 #     html = open("transport-web/dist/index.html").read()
@@ -58,6 +59,10 @@ class TransportFormHandle(FormView):
 
     def form_valid(self, form):
         # print(form.cleaned_data)
+
+        m = AnalyticsResult.objects.create()
+        m.f1 = ImageFile(open("static/dynamic.jpg", "rb"))
+        m.save()
 
         return super().form_valid(form)
 
