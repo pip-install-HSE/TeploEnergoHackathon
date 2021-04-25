@@ -61,7 +61,7 @@ class TransportFormHandle(FormView):
         # print(form.cleaned_data)
 
         m = AnalyticsResult.objects.create()
-        m.f1 = ImageFile(open("static/dynamic.jpg", "rb"))
+        m.f1 = ImageFile(open("/root/TeploEnergoHackathon/transport/static/dynamic.jpg", "rb"))
         m.save()
 
         return super().form_valid(form)
