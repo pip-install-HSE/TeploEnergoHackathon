@@ -1,0 +1,15 @@
+{% extends 'index.html' %}
+
+{% block title %}
+    Выбор параметров
+{% endblock %}
+
+{% block content %}
+    <div>
+        <form action="{% url 'transport_form_handle' %}">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" value="Подтвердить">
+        </form>
+    </div>
+{% endblock %}
