@@ -57,6 +57,10 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'transport-api.urls'
 
+TEMPLATE_DIRS = (
+    os.path.join(BASE_DIR, 'transport', 'templates'),
+)
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',

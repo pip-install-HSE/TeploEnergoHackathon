@@ -4,10 +4,7 @@ from .models import CustomerChoice, VehicleChoice
 
 
 class TransportCustomerForm(forms.Form):
-    customer = forms.MultipleChoiceField(
-        choices=CustomerChoice.choices,
-        widget=forms.CheckboxSelectMultiple,
-    )
+    customer = forms.ChoiceField(choices=CustomerChoice.choices)
     vehicle = forms.MultipleChoiceField(
         choices=VehicleChoice.choices,
         widget=forms.CheckboxSelectMultiple,
