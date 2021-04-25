@@ -53,7 +53,7 @@ class AnalyticsResult(models.Model):
     image_link = models.TextField(blank=True)
     image = models.ImageField(upload_to='images/', blank=True)
 
-
+'''
 class AuthGroup(models.Model):
     name = models.CharField(unique=True, max_length=150)
 
@@ -218,3 +218,4 @@ class Ride(models.Model):
 
 class SchemaTable(models.Model):
     index = models.BigIntegerField(blank=True, null=True)
+'''
