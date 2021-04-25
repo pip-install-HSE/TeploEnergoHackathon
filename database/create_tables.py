@@ -113,7 +113,7 @@ if __name__ == '__main__':
                              int(start_time[0:2]) * 60 - \
                              int(start_time[3:5])
                 if delta_time == 0:
-                    delta_time = 24 * 60 * 60
+                    delta_time = 24 * 60
 
         # if math.isnan(start_time) or math.isnan(end_time):
         #     continue
