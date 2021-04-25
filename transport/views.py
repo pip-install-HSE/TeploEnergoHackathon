@@ -1,10 +1,11 @@
 from django.http import HttpResponse
 from django.shortcuts import render, get_object_or_404
+from django.urls import reverse
 from django.views.generic import TemplateView, FormView, DetailView
 import os
 
 from .forms import TransportCustomerForm
-from .models import StaticAnalytics
+from .models import StaticAnalytics, AnalyticsResult
 
 
 # def static(request, **kwargs):
@@ -48,9 +49,24 @@ class ViewAnalytics(DetailView):
 
 
 class TransportFormHandle(FormView):
-    success_url = '/'
+    # success_url = '/'
+
+    def get_success_url(self):
+        return reverse('result', kwargs={'pk': AnalyticsResult.objects.count()})
+
     form_class = TransportCustomerForm
 
     def form_valid(self, form):
         print(form.cleaned_data)
+
         return super().form_valid(form)
+
+
+class AnalyticsResultView(DetailView):
+    model = AnalyticsResult
+    template_name = 'result.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['object'] = AnalyticsResult.objects.get(pk=AnalyticsResult.objects.count())
+        return context

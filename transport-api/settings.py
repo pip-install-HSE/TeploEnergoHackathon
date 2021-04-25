@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    # 'django.contrib.staticfiles',
+    'django.contrib.staticfiles',
     'transport.apps.TransportConfig',
 ]
 
@@ -129,9 +129,12 @@ USE_TZ = True
 
 STATIC_URL = '/'
 
-MEDIA_ROOT = 'transport-web/dist/'
-STATIC_ROOT = 'transport-web/dist/'
+MEDIA_ROOT = ''
+STATIC_ROOT = ''
 MEDIA_URL = 'file/'
+
+STATIC_ROOT = ''
+STATIC_URL = '/static/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field

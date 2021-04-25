@@ -43,4 +43,12 @@ class VehicleChoice(models.TextChoices):
 
 
 class StaticAnalytics(models.Model):
-    pass
+    title = models.TextField()
+    image_1 = models.ImageField(upload_to='images/', blank=True)
+    image_2 = models.ImageField(upload_to='images/', blank=True)
+    image_3 = models.ImageField(upload_to='images/', blank=True)
+
+
+class AnalyticsResult(models.Model):
+    image_link = models.TextField(blank=True)
+    image = models.ImageField(upload_to='images/', blank=True)

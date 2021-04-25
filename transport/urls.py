@@ -10,4 +10,5 @@ urlpatterns = [
     path('static_analytics/<int:pk>/', views.ViewAnalytics.as_view(), name='static_analytics'),
     path('make_analytics/', views.TransportForm.as_view(), name='make_analytics'),
     path('form_valid/', views.TransportFormHandle.as_view(), name='transport_form_handle'),
+    path('result/<int:pk>', views.AnalyticsResultView.as_view(), name='result'),
 ]
