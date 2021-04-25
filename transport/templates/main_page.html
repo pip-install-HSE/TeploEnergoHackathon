@@ -1,0 +1,12 @@
+{% extends 'index.html' %}
+
+{% block title %}
+    Добро пожаловать
+{% endblock %}
+
+{% block content %}
+    <div>
+        <a href="{% url 'static_analytics' %}">Посмотреть аналитику</a>
+        <a href="{% url 'make_analytics' %}">Рассчитать</a>
+    </div>
+{% endblock %}

@@ -1,3 +1,8 @@
 from django.contrib import admin
 
-# Register your models here.
+from .models import StaticAnalytics
+
+
+@admin.register(StaticAnalytics)
+class StaticAnalyticsAdmin(admin.ModelAdmin):
+    pass

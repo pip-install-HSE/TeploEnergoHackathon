@@ -40,3 +40,7 @@ class VehicleChoice(models.TextChoices):
     VEHICLE_13 = 'Погрузчик фронтальный', _('Погрузчик фронтальный')
     VEHICLE_14 = 'Автобусы малого класса', _('Автобусы малого класса')
     VEHICLE_15 = 'автовышка', _('автовышка')
+
+
+class StaticAnalytics(models.Model):
+    pass

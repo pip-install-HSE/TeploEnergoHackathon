@@ -1,4 +1,4 @@
-from create_tables import *
+from .create_tables import *
 
 if __name__ == '__main__':
     date_info = '01.01.2021'
