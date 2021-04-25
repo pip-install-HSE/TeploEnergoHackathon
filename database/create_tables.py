@@ -35,7 +35,7 @@ class Order(BaseModel):
     customer = ForeignKeyField(Customer, null=False, backref='orders')
     vehicle = ForeignKeyField(Vehicle, null=False, backref='orders')
     license = ForeignKeyField(License, null=True, backref='orders')
-    minutes = IntegerField(null=False)
+    predict_time = IntegerField(null=False)
     date = CharField(null=False, max_length=16)
     is_completed = BooleanField(null=False)
 
@@ -46,6 +46,12 @@ class Ride(BaseModel):
     event = ForeignKeyField(Event, null=False, backref='rides')
     license = ForeignKeyField(License, null=True, backref='rides')
     date = CharField(null=False, max_length=16)
+    real_time = IntegerField(null=False)
+
+    # class Meta:
+    #     indexes = (
+    #         (('license', 'date'), True)
+    #     )
 # class Order(BaseModel):
 #     numb
 
@@ -113,7 +119,7 @@ if __name__ == '__main__':
             customer=Customer.select().where(Customer.name == row['Заказчик']),
             vehicle=Vehicle.select().where(Vehicle.name == row['Требование_кТС']),
             license=License.select().where(License.name == row['НазначеноТС']),
-            minutes=delta_time,
+            predict_time=delta_time,
             date=row['ДатаВыполненияС'][:10],
             is_completed=is_completed
         ).execute()
@@ -128,13 +134,54 @@ if __name__ == '__main__':
                 Event.insert(name=el).execute()
 
         for i, row in rides_data_frame.iterrows():
+            if row['Событие'] != 'Работа':  # everything is broken if you remove it.
+                continue
+
             # if i > 5:
             #     break
-            Ride.insert(
-                event=Event.select().where(Event.name == row['Событие']),
-                license=License.select().where(License.name == row['ТС'].replace(' ', '')),
-                date=row['Начало'][:10]
-            ).execute()
+            license_info = row['ТС'].replace(' ', '')
+            date_info = row['Начало'][:10]
+            real_time = row['Длительноcть']
+            if isinstance(real_time, float) and math.isnan(real_time):
+                continue
+            real_time = int(real_time[0:2]) * 60 + int(real_time[3:5])
+
+            try:
+                ride = Ride.select().where(
+                    Ride.date == date_info and
+                    Ride.license_id == License.select(License.id).where(License.name == license_info)
+                ).get()
+                Ride.update(real_time=ride.real_time + real_time).where(
+                    Ride.id == ride.id
+                ).execute()
+            except:
+                # print(i, license_info, real_time)
+                Ride.insert(
+                    event=Event.select().where(Event.name == row['Событие']),
+                    license=License.select().where(License.name == license_info),
+                    date=date_info,
+                    real_time=real_time
+                ).execute()
+            # dur = Ride.select(Ride.duration).where(
+            #     Ride.license.name == license_info and
+            #     Ride.date == date_info
+            # ).execute()
+            # if dur is None:
+            #     Ride.insert(
+            #         event=Event.select().where(Event.name == row['Событие']),
+            #         license=license_info,
+            #         date=date_info,
+            #         duration=duration
+            #     ).execute()
+            # else:
+            #     Ride.update(duration=duration+1).where(
+            #         Ride.license.name == license_info and
+            #         Ride.date == date_info
+            #     )
+                # x = Ride.update(duration=ride[1]+duration).where(
+                #     Ride.license.name == license_info and
+                #     Ride.date == date_info
+                # ).execute()
 
 
         # print(row['Заказчик'], row['СтатусЗаявки'])
