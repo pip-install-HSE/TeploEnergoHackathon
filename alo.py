@@ -57,17 +57,17 @@ def getPngCustomer():
 
     eff = [round(counts[c][1] / counts[c][0], 2) for c in customers]
     customer_data = pd.DataFrame()
-    customer_data['Заказчик'] = customers
-    customer_data['Эффективность'] = eff
+    customer_data['Заказчик'] = customers[:1]
+    customer_data['Эффективность'] = eff[:1]
     customer_data['Среднее время простоя от выделенного, %'] = [round((1 - counts[c][1] / counts[c][0]) * 100, 2) for c
-                                                                in customers]
-    customer_data['Число выполненных заявок'] = [counts[c][0] for c in customers]
+                                                                in customers][:1]
+    customer_data['Число выполненных заявок'] = [counts[c][0] for c in customers][:1]
     # sns.heatmap(customer_data[:, 1:], annot=True, fmt='.1g')
-    plt.figure(figsize=(30, 30))
+    plt.figure(figsize=(30, 10))
     ax = plt.subplot(111, frame_on=False)  # no visible frame
     ax.xaxis.set_visible(False)  # hide the x axis
     ax.yaxis.set_visible(False)  # hide the y axis
-    table(ax, customer_data, rowLabels=[''] * customer_data.shape[0], loc='center')
+    table(ax, customer_data, rowLabels=[''] * customer_data.shape[0], loc='center', )
 
     plt.savefig('dynamic.jpg')
 
@@ -91,7 +91,7 @@ def getPngTransport():
     for i, c in enumerate(customers):
         customer_data[c] = eff[i]
 
-    plt.figure(figsize=(60, 60))
+    plt.figure(figsize=(120, 40))
     ax = plt.subplot(111, frame_on=False)  # no visible frame
     ax.xaxis.set_visible(False)  # hide the x axis
     ax.yaxis.set_visible(False)  # hide the y axis
