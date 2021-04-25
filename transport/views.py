@@ -78,8 +78,6 @@ inner join "ride" o on l.id = o.license_id and "order".date = o.date'''
         cursor.execute(r)
         records = cursor.fetchall()
 
-        print(records)
-
         m = AnalyticsResult.objects.create()
         m.image = ImageFile(open("images/dynamic.jpg", "rb"))
         m.save()
