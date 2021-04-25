@@ -6,3 +6,4 @@ psycopg2-binary
 xlrd
 xlwt
 openpyxl
+tqdm==4.60.0
