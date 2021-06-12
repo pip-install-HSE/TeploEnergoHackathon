@@ -17,13 +17,15 @@ nano /etc/postgresql/12/main/pg_hba.conf
 ADD:
 host    all             all              0.0.0.0/0                       md5
 host    all             all              ::/0                            md5
+or maybe:
+host all all 0.0.0.0/0 md5
 
 nano /etc/postgresql/12/main/postgresql.conf
 listen_addresses = '*'
 /etc/init.d/postgresql restart
 
 ALTER USER postgres PASSWORD 'newPassword'; 
-
+reboot!
 
 ## Set up and activate python environment
 
