@@ -2,21 +2,23 @@ sudo apt update
 
 sudo apt install postgresql postgresql-contrib
 
-sudo -i -u postgres
+<!-- sudo -i -u postgres -->
 
-createuser --interactive
+<!-- createuser --interactive -->
 
-createdb admin
-# reopen
+<!-- createdb admin -->
+<!-- # reopen -->
 
-passwd postgres
+<!-- passwd postgres -->
 
 /etc/init.d/postgresql restart
 
 nano /etc/postgresql/12/main/pg_hba.conf
 ADD:
-host    all             all              0.0.0.0/0                       md5
-host    all             all              ::/0                            md5
+
+*host    all             all              0.0.0.0/0                       md5
+host    all             all              ::/0                            md5*
+
 or maybe:
 host all all 0.0.0.0/0 md5
 
