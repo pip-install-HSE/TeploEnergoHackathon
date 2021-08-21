@@ -10,9 +10,11 @@ sudo apt install postgresql postgresql-contrib
 nano /etc/postgresql/10/main/pg_hba.conf
 ```
 ADD:
-
+```
 host    all             all              0.0.0.0/0              md5
 host    all             all              ::/0                   md5
+```
+
 <!-- 
 or maybe:
 host all all 0.0.0.0/0 md5 -->
