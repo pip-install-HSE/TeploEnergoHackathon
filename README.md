@@ -30,8 +30,8 @@ listen_addresses = '*'
 sudo -i -u postgres
 psql
 ALTER USER postgres PASSWORD 'newPassword'; 
-createdb admin
-reboot!
+create database main;
+reboot
 ```
 
 
