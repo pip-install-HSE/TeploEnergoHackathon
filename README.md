@@ -3,7 +3,7 @@ sudo apt update
 ```
 
 ```
-sudo apt install postgresql postgresql-contrib
+sudo apt install -y postgresql postgresql-contrib
 ```
 
 ```
