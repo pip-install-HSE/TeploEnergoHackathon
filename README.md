@@ -26,9 +26,13 @@ listen_addresses = '*'
 
 `/etc/init.d/postgresql restart`
 
+```
+sudo -i -u postgres
+psql
 ALTER USER postgres PASSWORD 'newPassword'; 
 createdb admin
 reboot!
+```
 
 
 <!-- sudo -i -u postgres -->
