@@ -30,7 +30,7 @@ listen_addresses = '*'
 sudo -i -u postgres
 psql
 ALTER USER postgres PASSWORD 'newPassword'; 
-create database main;
+CREATE DATABASE main WITH owner=postgres ENCODING = 'UTF-8' lc_collate = 'en_US.utf8' lc_ctype = 'en_US.utf8' template template0;
 reboot
 ```
 
@@ -92,4 +92,4 @@ DB_NAME = "main_db"
 ```
 
 
-CREATE DATABASE main WITH owner=postgres ENCODING = 'UTF-8' lc_collate = 'en_US.utf8' lc_ctype = 'en_US.utf8' template template0;
+
