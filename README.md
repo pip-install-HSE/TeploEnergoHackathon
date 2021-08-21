@@ -27,10 +27,19 @@ listen_addresses = '*'
 `/etc/init.d/postgresql restart`
 
 ```
-sudo -i -u postgres
-psql
-ALTER USER postgres PASSWORD 'newPassword'; 
+sudo -u postgres psql
+```
+
+```
+ALTER USER postgres PASSWORD 'newPassword';
+
+```
+
+```
 CREATE DATABASE main WITH owner=postgres ENCODING = 'UTF-8' lc_collate = 'en_US.utf8' lc_ctype = 'en_US.utf8' template template0;
+```
+
+```
 reboot
 ```
 
