@@ -1,6 +1,27 @@
-sudo apt update
+`sudo apt update`
 
-sudo apt install postgresql postgresql-contrib
+`sudo apt install postgresql postgresql-contrib`
+
+nano /etc/postgresql/10/main/pg_hba.conf
+ADD:
+
+host    all             all              0.0.0.0/0              md5
+host    all             all              ::/0                   md5
+<!-- 
+or maybe:
+host all all 0.0.0.0/0 md5 -->
+
+```
+nano /etc/postgresql/10/main/postgresql.conf
+listen_addresses = '*'
+```
+
+`/etc/init.d/postgresql restart`
+
+ALTER USER postgres PASSWORD 'newPassword'; 
+createdb admin
+reboot!
+
 
 <!-- sudo -i -u postgres -->
 
@@ -12,23 +33,6 @@ sudo apt install postgresql postgresql-contrib
 <!-- passwd postgres -->
 
 /etc/init.d/postgresql restart
-
-nano /etc/postgresql/12/main/pg_hba.conf
-ADD:
-
-host    all             all              0.0.0.0/0                       md5
-host    all             all              ::/0                            md5
-
-or maybe:
-host all all 0.0.0.0/0 md5
-
-nano /etc/postgresql/12/main/postgresql.conf
-listen_addresses = '*'
-/etc/init.d/postgresql restart
-
-ALTER USER postgres PASSWORD 'newPassword'; 
-createdb admin
-reboot!
 
 ## Set up and activate python environment
 
