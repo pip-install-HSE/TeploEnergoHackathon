@@ -40,6 +40,7 @@ CREATE DATABASE main WITH owner=postgres ENCODING = 'UTF-8' lc_collate = 'en_US.
 ```
 
 ```
+\q
 reboot
 ```
 
